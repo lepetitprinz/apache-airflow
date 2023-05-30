@@ -5,7 +5,8 @@ from airflow.operators.bash import BashOperator
 dag = DAG(
     dag_id="download_wikipedia_pageview",
     start_date=airflow.utils.dates.days_ago(3),
-    schedule_interval="@daily"
+    schedule_interval="@hourly",
+    max_active_runs=1
 )
 
 get_data = BashOperator(
