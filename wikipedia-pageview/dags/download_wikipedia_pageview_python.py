@@ -8,6 +8,7 @@ dag = DAG(
     dag_id="download_wikipedia_pageview_python",
     start_date=airflow.utils.dates.days_ago(1),
     schedule_interval="@hourly",
+    max_active_runs=1,
 )
 
 def _get_data(execution_date):
